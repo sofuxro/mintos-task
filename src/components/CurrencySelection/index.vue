@@ -35,7 +35,7 @@ const remove = (currency: Currency) => {
 </script>
 
 <template>
-  <div class="max-w-[600px] border border-gray-400 rounded-md p-8 pr-6 shadow-lg">
+  <div class="max-w-[600px] border bg-white dark:bg-neutral-800 border-gray-400 dark:border-gray-600 rounded-md p-8 pr-6 shadow-lg">
 
     <!------------------ Selected currencies ------------------->
     <div class="mts-currency-wrapper mb-10" data-testid="selected-currencies">
