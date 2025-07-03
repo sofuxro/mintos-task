@@ -5,18 +5,17 @@ import CurrencyItem from './Item.vue';
 import CurrencySelectedItem from './SelectedItem.vue';
 import { Currency } from '@/types/Currency';
 
-const currencies = [
-  { code: 'USD', name: 'US Dollar' },
-  { code: 'EUR', name: 'Euro' },
-  { code: 'GBP', name: 'British Pound' },
-  { code: 'JPY', name: 'Japanese Yen' },
-  { code: 'AUD', name: 'Australian Dollar' },
-  { code: 'CAD', name: 'Canadian Dollar' },
-  { code: 'CHF', name: 'Swiss Franc' },
-  { code: 'CNY', name: 'Chinese Yuan' }
-];
+/* ====================== Props ====================== */
+
+const { currencies } = defineProps<{
+  currencies: Currency[];
+}>();
+
+/* ====================== Vars ====================== */
 
 const selectedCurrencies = ref<Currency[]>([]);
+
+/* ====================== Functions ====================== */
 
 const toggleSelect = (currency: Currency) => {
   const index = selectedCurrencies.value.indexOf(currency);
@@ -37,7 +36,9 @@ const remove = (currency: Currency) => {
 
 <template>
   <div class="max-w-[600px] border border-gray-400 rounded-md p-8 pr-6 shadow-lg">
-    <div class="mts-currency-wrapper mb-10">
+
+    <!------------------ Selected currencies ------------------->
+    <div class="mts-currency-wrapper mb-10" data-testid="selected-currencies">
       <CurrencySelectedItem
         v-for="currency in selectedCurrencies"
         :key="currency.code"
@@ -47,7 +48,8 @@ const remove = (currency: Currency) => {
       />
     </div>
 
-    <div class="mts-currency-wrapper">
+    <!------------------ Available currencies ------------------->
+    <div class="mts-currency-wrapper" data-testid="available-currencies">
       <CurrencyItem
         v-for="currency in currencies"
         :key="currency.code"
