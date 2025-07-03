@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Currency } from '@/types/Currency';
+import type { Currency } from '@/types/Currency';
 
 defineProps<{
   currency: Currency;

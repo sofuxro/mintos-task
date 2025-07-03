@@ -3,7 +3,7 @@ import { ref } from 'vue';
 
 import CurrencyItem from './Item.vue';
 import CurrencySelectedItem from './SelectedItem.vue';
-import { Currency } from '@/types/Currency';
+import type { Currency } from '@/types/Currency';
 
 /* ====================== Props ====================== */
 
